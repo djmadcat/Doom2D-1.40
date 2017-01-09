@@ -1,0 +1,17 @@
+---
+BasedOnStyle: Chromium
+AlignTrailingComments: true
+BreakBeforeBraces: Linux
+ColumnLimit: 0
+IndentWidth: 4
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 2
+ObjCBlockIndentWidth: 4
+ObjCSpaceAfterProperty: true
+ObjCSpaceBeforeProtocolList: true
+PointerBindsToType: false
+SortIncludes: false
+SpacesBeforeTrailingComments: 1
+TabWidth: 8
+UseTab: Never
+...
