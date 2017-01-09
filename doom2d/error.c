@@ -50,6 +50,8 @@ void ERR_quit(void) {
         puts("Спасибо за то, что вы играли в Doom2D!");
     } else {
         F_loadres(F_getresid("ENDOOM"), p, 0, 4000);
+        // 0xB8000 – text screen video memory for colour monitors
+        // 80x25x2 = 4000 bytes
         memcpy((void *) 0xB8000, p, 4000);
         free(p);
         gotoxy(1, 24);
