@@ -22,6 +22,7 @@ set(SOURCE_FILES
         libs/keyb.h libs/keyb_st.c
         libs/harderr.h libs/hderr_st.c
         libs/timer.h libs/timer_st.c
+        libs/snddrv.h libs/snddrv.c
         libs/sound.h libs/sound_st.c
         libs/vga.h libs/vga_st.c)
 
