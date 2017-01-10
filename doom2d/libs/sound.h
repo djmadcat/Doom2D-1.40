@@ -1,6 +1,8 @@
 #ifndef DOOM2D_SOUND_H
 #define DOOM2D_SOUND_H
 
+#include "snddrv.h"
+
 typedef struct {
     // length (in bytes)
     unsigned long len;
@@ -29,5 +31,11 @@ void S_init(void);
 void S_done(void);
 
 short S_detect(void);
+
+char *S_getinfo(void);
+
+extern snd_drv_f snd_drv;
+
+extern unsigned short sfreq;
 
 #endif //DOOM2D_SOUND_H

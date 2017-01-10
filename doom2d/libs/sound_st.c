@@ -1,5 +1,9 @@
 #include "sound.h"
 
+unsigned short sfreq = 11025;
+
+snd_drv_f snd_drv = __none_drv;
+
 short S_play(snd_t *s, short c, unsigned r, short v) {
     return 0;
 }
@@ -44,5 +48,6 @@ short S_detect(void) {
     return 0;
 }
 
-static void S_getinfo(void) {
+char *S_getinfo(void) {
+    return "";
 }
