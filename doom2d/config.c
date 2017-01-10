@@ -1,5 +1,7 @@
 #include "config.h"
 
+int snd_card = 0;
+
 void CFG_args(void) {
 }
 

@@ -3,6 +3,22 @@
 #ifndef DOOM2D_FILES_H
 #define DOOM2D_FILES_H
 
+#define MAX_WADS 20
+#define MAX_WAD 2000
+
+typedef struct {
+    int o;
+    int l;
+    char n[8];
+} wad_t;
+
+typedef struct {
+    int o;
+    int l;
+    char n[8];
+    int f;
+} mwad_t;
+
 void F_startup(void);
 
 void F_getsavnames(void);
@@ -44,5 +60,11 @@ void F_loadmap(const char *n);
 void F_freemus(void);
 
 void F_loadmus(const char *n);
+
+extern int d_start, d_end;
+extern int m_start, m_end;
+extern int s_start, s_end;
+
+extern mwad_t wad[MAX_WAD];
 
 #endif //DOOM2D_FILES_H
