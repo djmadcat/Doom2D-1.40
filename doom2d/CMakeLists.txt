@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(SOURCE_FILES
         glob.h
+        dos_bp.h dos_bp.c
         terminal.h terminal.c
         palette.h palette.c
         main.c
