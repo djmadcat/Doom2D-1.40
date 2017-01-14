@@ -1,7 +1,7 @@
-#include "glob.h"
-
 #ifndef DOOM2D_FILES_H
 #define DOOM2D_FILES_H
+
+#include "glob.h"
 
 #define MAX_WADS 20
 #define MAX_WAD 2000

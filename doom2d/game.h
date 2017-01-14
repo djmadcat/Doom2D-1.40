@@ -1,7 +1,7 @@
-#include "player.h"
-
 #ifndef DOOM2D_GAME_H
 #define DOOM2D_GAME_H
+
+#include "player.h"
 
 void G_savegame(int h);
 

@@ -1,7 +1,7 @@
-#include "glob.h"
-
 #ifndef DOOM2D_MENU_H
 #define DOOM2D_MENU_H
+
+#include "glob.h"
 
 typedef struct {
     byte type;

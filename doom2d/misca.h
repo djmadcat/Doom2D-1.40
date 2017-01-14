@@ -1,7 +1,7 @@
-#include "glob.h"
-
 #ifndef DOOM2D_MISC_H
 #define DOOM2D_MISC_H
+
+#include "glob.h"
 
 void gotoxy(int x, int y);
 

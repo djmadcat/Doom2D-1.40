@@ -1,8 +1,8 @@
-#include "glob.h"
-#include "view.h"
-
 #ifndef DOOM2D_PLAYER_H
 #define DOOM2D_PLAYER_H
+
+#include "glob.h"
+#include "view.h"
 
 typedef struct {
     obj_t o;

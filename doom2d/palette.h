@@ -1,7 +1,7 @@
-#include "glob.h"
-
 #ifndef DOOM2D_PALETTE_H
 #define DOOM2D_PALETTE_H
+
+#include "glob.h"
 
 void setgamma(int g);
 
