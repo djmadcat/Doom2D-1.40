@@ -17,7 +17,10 @@
 #define O_BINARY 0x0
 #endif
 
+//int stricmp(const char *s1, const char *s2);
 #define stricmp(a, b) strcasecmp(a, b)
+
+//int strnicmp(const char *s1, const char *s2, size_t len);
 #define strnicmp(a, b, l) strncasecmp(a, b, l)
 
 void _splitpath(const char *__path, char *__drive, char *__dir, char *__fname, char *__ext);
