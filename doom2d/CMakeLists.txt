@@ -12,6 +12,7 @@ set(SOURCE_FILES
         main.c
         player.h player.c
         dots.h dots.c
+        smoke.h smoke.c
         view.h view.c
         menu.h menu.c
         game.h game.c
