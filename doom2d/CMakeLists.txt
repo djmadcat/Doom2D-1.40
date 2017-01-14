@@ -14,6 +14,7 @@ set(SOURCE_FILES
         view.h
         menu.h menu.c
         game.h game.c
+        music.h music.c
         files.h files.c
         config.h config.c
         error.h error.c

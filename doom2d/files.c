@@ -11,6 +11,7 @@
 #include "config.h"
 #include "libs/snddrv.h"
 #include "libs/sound.h"
+#include "music.h"
 
 int d_start, d_end;
 int m_start, m_end;
@@ -244,6 +245,21 @@ int F_getreslen(int r) {
 }
 
 void F_nextmus(char *s) {
+    int i;
+
+    i = F_findres(s);
+    if (i <= m_start || i >= m_end) {
+        i = m_start;
+    }
+    for (++i;; ++i) {
+        if (i >= m_end) {
+            i = m_start + 1;
+        }
+        if (memicmp(wad[i].n, "DMI", 3) != 0) {
+            break;
+        }
+    }
+    memcpy(s, wad[i].n, 8);
 }
 
 // reads bytes from file until CR
@@ -286,7 +302,87 @@ void F_loadmap(const char *n) {
 }
 
 void F_freemus(void) {
+    int i;
+
+    if (!pat) {
+        return;
+    }
+    S_stopmusic();
+    free(pat);
+    free(patp);
+    for (i = 0; i < inum; ++i) {
+        if (dmi[i] != NULL) {
+            free(dmi[i]);
+        }
+    }
+    free(dmi);
+    pat = NULL;
 }
 
 void F_loadmus(const char *n) {
+    int r;
+    int h;
+    int i;
+    int j;
+    int o;
+    dmm_t d;
+    dmi_t di;
+
+    if ((r = F_findres(n)) == -1) {
+        return;
+    }
+    lseek(h = wadh[wad[r].f], wad[r].o, SEEK_SET);
+    read(h, &d, sizeof(dmm_t));
+    if (memcmp(d.id, "DMM", 4) != 0) {
+        return;
+    }
+    if (!(pat = malloc(d.psz << 2))) {
+        return;
+    }
+    read(h, pat, d.psz << 2);
+    read(h, &seqn, 1);
+    if (seqn) {
+        read(h, seq, seqn);
+    }
+    inum = 0;
+    read(h, &inum, 1);
+    if (!(dmi = malloc(inum * 4))) {
+        free(pat);
+        pat = NULL;
+        return;
+    }
+    if (!(patp = malloc((word) d.pat * 32))) {
+        free(pat);
+        free(dmi);
+        pat = NULL;
+        return;
+    }
+    for (i = 0; i < inum; ++i) {
+        dmi[i] = NULL;
+        read(h, &di, sizeof(dmi_t));
+        o = tell(h);
+        for (r = 0; r < 12; ++r) {
+            if (di.n[r] == '.') {
+                di.n[r] = 0;
+            }
+        }
+        if ((r = F_findres(di.n)) == -1) {
+            continue;
+        }
+        if (!(dmi[i] = malloc(wad[r].l + 8))) {
+            continue;
+        }
+        memset(dmi[i], 0, 16);
+        F_loadres(r, dmi[i], 0, 2);
+        F_loadres(r, (int *) dmi[i] + 1, 2, 2);
+        F_loadres(r, (int *) dmi[i] + 2, 4, 2);
+        F_loadres(r, (int *) dmi[i] + 3, 6, 2);
+        F_loadres(r, (int *) dmi[i] + 4, 8, wad[r].l - 8);
+        lseek(h, o, SEEK_SET);
+    }
+    for (i = r = 0, j = (word) d.pat << 3; i < j; ++i) {
+        patp[i] = r << 2;
+        while (pat[r++].v != 0x80) {
+        }
+    }
 }

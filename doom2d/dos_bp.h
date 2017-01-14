@@ -23,6 +23,9 @@
 //int strnicmp(const char *s1, const char *s2, size_t len);
 #define strnicmp(a, b, l) strncasecmp(a, b, l)
 
+// int memicmp(const void *s1, const void *s2, size_t len);
+#define memicmp(a, b, l) strncasecmp(a, b, l)
+
 void _splitpath(const char *__path, char *__drive, char *__dir, char *__fname, char *__ext);
 
 long filelength(int __handle);
