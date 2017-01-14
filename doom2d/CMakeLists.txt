@@ -17,6 +17,7 @@ set(SOURCE_FILES
         music.h music.c
         map.h
         items.h items.c
+        weapons.h weapons.c
         switch.h switch.c
         files.h files.c
         config.h config.c
