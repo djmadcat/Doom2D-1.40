@@ -11,10 +11,13 @@ set(SOURCE_FILES
         palette.h palette.c
         main.c
         player.h player.c
-        view.h
+        view.h view.c
         menu.h menu.c
         game.h game.c
         music.h music.c
+        map.h
+        items.h items.c
+        switch.h switch.c
         files.h files.c
         config.h config.c
         error.h error.c

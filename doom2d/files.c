@@ -12,6 +12,10 @@
 #include "libs/snddrv.h"
 #include "libs/sound.h"
 #include "music.h"
+#include "map.h"
+#include "game.h"
+#include "items.h"
+#include "switch.h"
 
 int d_start, d_end;
 int m_start, m_end;
@@ -299,6 +303,39 @@ void F_readstrz(int h, char *s, int m) {
 }
 
 void F_loadmap(const char *n) {
+    int r, h;
+    map_header_t hdr;
+    map_block_t blk;
+    int o;
+
+    W_init();
+    r = F_getresid(n);
+    lseek(h = wadh[wad[r].f], wad[r].o, SEEK_SET);
+    read(h, &hdr, sizeof(map_header_t));
+    if (memcmp(hdr.id, "Doom2D\x1A", 8) != 0) {
+        ERR_fatal("%.8s не является уровнем", n);
+    }
+    for (;;) {
+        read(h, &blk, sizeof(map_block_t));
+        if (blk.t == MB_END) {
+            break;
+        }
+        if (blk.t == MB_COMMENT) {
+            lseek(h, blk.sz, SEEK_CUR);
+            continue;
+        }
+        o = tell(h) + blk.sz;
+        if (!G_load(h)) {
+            if (!W_load(h)) {
+                if (!IT_load(h)) {
+                    if (!SW_load(h)) {
+                        ERR_fatal("Неизвестный блок %d(%d) в уровне %.8s", blk.t, blk.st, n);
+                    }
+                }
+            }
+        }
+        lseek(h, o, SEEK_SET);
+    }
 }
 
 void F_freemus(void) {
