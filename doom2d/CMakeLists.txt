@@ -11,6 +11,7 @@ set(SOURCE_FILES
         palette.h palette.c
         main.c
         player.h player.c
+        dots.h dots.c
         view.h view.c
         menu.h menu.c
         game.h game.c
