@@ -1,5 +1,16 @@
 #include "game.h"
 
+byte _2pl = 0;
+byte g_dm = 0;
+dword g_time;
+
+int dm_pnum;
+int dm_pl1p, dm_pl2p;
+pos_t dm_pos[100];
+
+void *ltn[2][2];
+int lt_time, lt_type, lt_side, lt_ypos, lt_force;
+
 static void set_trans(int st) {
 }
 
