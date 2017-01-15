@@ -60,6 +60,8 @@ void PL_damage(player_t *p);
 
 void PL_cry(player_t *p);
 
+int PL_give(player_t *p, int t);
+
 void PL_act(player_t *p);
 
 void PL_draw(player_t *p);
