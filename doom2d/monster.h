@@ -4,6 +4,35 @@
 #include "glob.h"
 #include "view.h"
 
+#define MAXMN 200
+
+enum {
+    MN_NONE,
+    MN_DEMON,
+    MN_IMP,
+    MN_ZOMBY,
+    MN_SERG,
+    MN_CYBER,
+    MN_CGUN,
+    MN_BARON,
+    MN_KNIGHT,
+    MN_CACO,
+    MN_SOUL,
+    MN_PAIN,
+    MN_SPIDER,
+    MN_BSP,
+    MN_MANCUB,
+    MN_SKEL,
+    MN_VILE,
+    MN_FISH,
+    MN_BARREL,
+    MN_ROBO,
+    MN_MAN,
+    MN__LAST,
+    MN_PL_DEAD = 100,
+    MN_PL_MESS
+};
+
 typedef struct {
     obj_t o;
     byte t, d, st, ftime;
