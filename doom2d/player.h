@@ -18,7 +18,7 @@ typedef struct {
     int invl;
     int suit;
     char d;
-    // keys: up, down, left, right, fire, jump, ?, ?, ?
+    // keys: up, down, left, right, fire, jump, prev weapon, next weapon, use
     byte ku, kd, kl, kr, kf, kj, kwl, kwr, kp;
     // statistics?
     int frag, ammo, shel, rock, cell, fuel, kills, secrets;
