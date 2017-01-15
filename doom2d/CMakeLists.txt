@@ -14,6 +14,7 @@ set(SOURCE_FILES
         dots.h dots.c
         smoke.h smoke.c
         view.h view.c
+        vgaa.h vgaa_st.c
         menu.h menu.c
         game.h game.c
         music.h music.c
