@@ -33,6 +33,8 @@ char f_name[_MAX_FNAME];
 char f_ext[_MAX_EXT];
 char f_path[_MAX_PATH];
 
+map_block_t blk;
+
 void F_startup(void) {
     logo("F_startup: настройка файловой системы\n");
     memset(wads, 0, sizeof(wads));
@@ -305,7 +307,6 @@ void F_readstrz(int h, char *s, int m) {
 void F_loadmap(const char *n) {
     int r, h;
     map_header_t hdr;
-    map_block_t blk;
     int o;
 
     W_init();

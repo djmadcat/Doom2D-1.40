@@ -2,6 +2,7 @@
 #define DOOM2D_FILES_H
 
 #include "glob.h"
+#include "map.h"
 
 #define MAX_WADS 20
 #define MAX_WAD 2000
@@ -66,5 +67,7 @@ extern int m_start, m_end;
 extern int s_start, s_end;
 
 extern mwad_t wad[MAX_WAD];
+
+extern map_block_t blk;
 
 #endif //DOOM2D_FILES_H
