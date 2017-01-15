@@ -80,6 +80,10 @@ int Z_gunhit(int x, int y, int o, int xv, int yv) {
     return 0;
 }
 
+int Z_hit(obj_t *o, int d, int own, int t) {
+    return 0;
+}
+
 void MN_killedp(void) {
 }
 

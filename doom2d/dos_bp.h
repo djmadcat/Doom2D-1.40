@@ -32,4 +32,12 @@ long filelength(int __handle);
 
 #define tell(fd) lseek(fd, 0, SEEK_CUR)
 
+/* min and max macros */
+#if !defined(max)
+#define max(a,b)  (((a) > (b)) ? (a) : (b))
+#endif
+#if !defined(min)
+#define min(a,b)  (((a) < (b)) ? (a) : (b))
+#endif
+
 #endif //DOOM2D_DOS_BP_H

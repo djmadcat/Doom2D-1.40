@@ -23,19 +23,6 @@
 
 #define ANIT 5
 
-// viewport width in pixels
-#define WD 200
-// viewport height in pixels
-#define HT 198
-// min x camera position
-// WD/2
-// min y camera position
-// HT/2
-// max x camera position
-#define MAXX (FLDW*CELW-WD/2)
-// max y camera position
-#define MAXY (FLDH*CELH-HT/2)
-
 // draw sky enabled
 byte w_horiz = TRUE;
 // sky texture

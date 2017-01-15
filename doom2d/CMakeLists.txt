@@ -12,6 +12,7 @@ set(SOURCE_FILES
         main.c
         player.h player.c
         dots.h dots.c
+        smoka.h smoka_st.c
         smoke.h smoke.c
         view.h view.c
         vgaa.h vgaa_st.c

@@ -3,6 +3,15 @@
 
 #include "glob.h"
 
+#define MAXSMOK 500
+
+typedef struct {
+    int x, y;
+    int xv, yv;
+    byte t, s;
+    short o;
+} smoke_t;
+
 void SMK_savegame(int h);
 
 void SMK_loadgame(int h);
