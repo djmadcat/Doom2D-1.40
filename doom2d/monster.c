@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include "monster.h"
 
+byte nomon = 1;
+
 void MN_savegame(int h) {
 }
 

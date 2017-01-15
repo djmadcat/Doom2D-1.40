@@ -1,5 +1,13 @@
 #include "sound.h"
 
+short snd_vol = 128;
+short mus_vol = 64;
+char s_interp = 0;
+
+unsigned short snd_port = 0;
+unsigned short snd_dma = 0;
+unsigned short snd_irq = 0;
+
 unsigned short sfreq = 11025;
 
 snd_drv_f snd_drv = __none_drv;

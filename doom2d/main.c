@@ -15,9 +15,6 @@
 #include "libs/harderr.h"
 #include "libs/vga.h"
 
-int mem_chk_sz = 0;
-byte fastdraw = 0;
-
 int harderr_handler(int f, int d, int e) {
     if (!(keys[1] || keys[0x44])) {
         return HARDERR_RETRY;

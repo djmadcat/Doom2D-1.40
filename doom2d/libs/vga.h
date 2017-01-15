@@ -94,4 +94,8 @@ extern unsigned char *scra;
 // output area
 extern short scrw, scrh, scrx, scry;
 
+// wait for the return of the blanked scanning beam when palette set
+// 0 – disabled, else enabled
+extern char vp_waitrr;
+
 #endif //DOOM2D_VGA_H

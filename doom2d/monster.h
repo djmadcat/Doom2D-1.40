@@ -85,4 +85,6 @@ void Z_teleobj(int o, int x, int y);
 
 mn_t *MN_get(int i);
 
+extern byte nomon;
+
 #endif //DOOM2D_MONSTER_H

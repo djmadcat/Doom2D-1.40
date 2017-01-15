@@ -36,6 +36,18 @@ char *S_getinfo(void);
 
 extern snd_drv_f snd_drv;
 
+// sound volume (0–128)
+extern short snd_vol;
+// music volume (0–128)
+extern short mus_vol;
+// sound interpolation (0 – disabled, else enabled)
+// better quality, but slower if enabled
+extern char s_interp;
+
+extern unsigned short snd_port;
+extern unsigned short snd_dma;
+extern unsigned short snd_irq;
+
 extern unsigned short sfreq;
 
 #endif //DOOM2D_SOUND_H

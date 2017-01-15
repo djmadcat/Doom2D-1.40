@@ -80,6 +80,8 @@ void W_act(void);
 
 int W_load(int h);
 
+extern byte w_horiz;
+
 extern int w_o;
 extern int w_x, w_y;
 

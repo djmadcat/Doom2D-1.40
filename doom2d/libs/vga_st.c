@@ -5,6 +5,8 @@ unsigned char scrbuf[V_SCR_WIDTH * V_SCR_HEIGHT];
 unsigned char *scra;
 short scrw, scrh, scrx, scry;
 
+char vp_waitrr = 1;
+
 short V_init(void) {
     return 0;
 }

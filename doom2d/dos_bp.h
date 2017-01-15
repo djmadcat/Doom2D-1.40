@@ -28,7 +28,11 @@
 
 void _splitpath(const char *__path, char *__drive, char *__dir, char *__fname, char *__ext);
 
+char *getcmd(char *__buffer);
+
 long filelength(int __handle);
+
+int eof(int __handle);
 
 #define tell(fd) lseek(fd, 0, SEEK_CUR)
 
