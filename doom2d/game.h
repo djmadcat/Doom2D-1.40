@@ -21,6 +21,7 @@ void G_respawn_player(player_t *p);
 
 extern byte _2pl;
 extern byte g_dm;
+extern byte g_exit;
 extern dword g_time;
 
 extern int dm_pnum;

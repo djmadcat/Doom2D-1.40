@@ -4,6 +4,33 @@
 #include "view.h"
 #include "glob.h"
 
+#define MAXSW 100
+
+enum {
+    SW_NONE,
+    SW_EXIT,
+    SW_EXITS,
+    SW_OPENDOOR,
+    SW_SHUTDOOR,
+    SW_SHUTTRAP,
+    SW_DOOR,
+    SW_DOOR5,
+    SW_PRESS,
+    SW_TELE,
+    SW_SECRET,
+    SW_LIFTUP,
+    SW_LIFTDOWN,
+    SW_TRAP,
+    SW_LIFT
+};
+
+typedef struct {
+    byte x, y;
+    byte t, tm;
+    byte a, b, c, d;
+    byte f;
+} sw_t;
+
 void SW_savegame(int h);
 
 void SW_loadgame(int h);

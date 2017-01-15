@@ -2,6 +2,7 @@
 
 byte _2pl = 0;
 byte g_dm = 0;
+byte g_exit = 0;
 dword g_time;
 
 int dm_pnum;

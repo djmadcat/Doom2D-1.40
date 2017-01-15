@@ -83,6 +83,8 @@ int W_load(int h);
 extern int w_o;
 extern int w_x, w_y;
 
+extern byte walswp[MAXWAL];
+
 extern byte fldb[FLDH][FLDW];
 extern byte fldf[FLDH][FLDW];
 extern byte fld[FLDH][FLDW];
