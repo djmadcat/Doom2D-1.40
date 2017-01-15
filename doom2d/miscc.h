@@ -85,4 +85,6 @@ int Z_moveobj(obj_t *p);
 
 void Z_splash(obj_t *p, int n);
 
+extern byte z_dot;
+
 #endif //DOOM2D_MISCC_H

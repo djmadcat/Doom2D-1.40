@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include "miscc.h"
 
+byte z_dot = 0;
+
 int Z_sign(int a) {
     return 0;
 }

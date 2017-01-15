@@ -2,6 +2,22 @@
 #define DOOM2D_DOTS_H
 
 #include "glob.h"
+#include "view.h"
+
+#define MAXDOT 400
+
+typedef struct {
+    obj_t o;
+    byte c;
+    byte t;
+} dot_t;
+
+typedef struct {
+    int xv;
+    int yv;
+    byte c;
+    byte t;
+} init_t;
 
 void DOT_savegame(int h);
 
