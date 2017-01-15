@@ -28,6 +28,7 @@ set(SOURCE_FILES
         config.h config.c
         error.h error.c
         memory.h memory.c
+        a8.h a8.c
         misca.h misca_st.c
         libs/keyb.h libs/keyb_st.c
         libs/harderr.h libs/hderr_st.c
