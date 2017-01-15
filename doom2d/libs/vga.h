@@ -1,6 +1,9 @@
 #ifndef DOOM2D_VGA_H
 #define DOOM2D_VGA_H
 
+#define V_SCR_WIDTH  320
+#define V_SCR_HEIGHT 200
+
 typedef struct {
     // width
     unsigned short w;
@@ -83,6 +86,12 @@ void V_setscr(void *p);
 void V_copytoscr(short x, short w, short y, short h);
 
 // virtual screen
-extern unsigned char scrbuf[64000];
+extern unsigned char scrbuf[V_SCR_WIDTH * V_SCR_HEIGHT];
+
+// screen buffer address
+extern unsigned char *scra;
+
+// output area
+extern short scrw, scrh, scrx, scry;
 
 #endif //DOOM2D_VGA_H

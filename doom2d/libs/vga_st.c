@@ -1,6 +1,9 @@
 #include "vga.h"
 
-unsigned char scrbuf[64000];
+unsigned char scrbuf[V_SCR_WIDTH * V_SCR_HEIGHT];
+
+unsigned char *scra;
+short scrw, scrh, scrx, scry;
 
 short V_init(void) {
     return 0;

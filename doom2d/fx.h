@@ -1,6 +1,14 @@
 #ifndef DOOM2D_FX_H
 #define DOOM2D_FX_H
 
+#define MAXFX 300
+
+typedef struct {
+    int x, y;
+    int xv, yv;
+    char t, s;
+} fx_t;
+
 void FX_trans1(int t);
 
 void FX_savegame(int h);
