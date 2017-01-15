@@ -25,6 +25,8 @@ set(SOURCE_FILES
         switch.h switch.c
         files.h files.c
         fx.h fx.c
+        bmapa.h bmapa_st.c
+        bmap.h bmap.c
         config.h config.c
         error.h error.c
         memory.h memory.c
