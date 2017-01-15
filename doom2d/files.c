@@ -16,6 +16,14 @@
 #include "game.h"
 #include "items.h"
 #include "switch.h"
+#include "dots.h"
+#include "smoke.h"
+#include "fx.h"
+#include "monster.h"
+#include "weapons.h"
+
+byte savname[7][24];
+byte savok[7];
 
 int d_start, d_end;
 int m_start, m_end;
@@ -41,12 +49,75 @@ void F_startup(void) {
 }
 
 void F_getsavnames(void) {
+    int i;
+    int h;
+    static char n[] = "SAVGAME0.DAT";
+    short ver;
+
+    for (i = 0; i < 7; ++i) {
+        n[7] = i + '0';
+        memset(savname[i], 0, 24);
+        savok[i] = 0;
+        if ((h = open(n, O_RDONLY | O_BINARY)) == -1) {
+            continue;
+        }
+        read(h, savname[i], 24);
+        ver = -1;
+        read(h, &ver, 2);
+        close(h);
+        savname[i][23] = 0;
+        savok[i] = (ver == 2) ? 1 : 0;
+    }
 }
 
 void F_savegame(int n, const char *s) {
+    int h;
+    static char fn[] = "SAVGAME0.DAT";
+
+    fn[7] = n + '0';
+    if ((h = open(fn, O_BINARY | O_CREAT | O_RDWR | O_TRUNC, S_IREAD | S_IWRITE)) == -1) {
+        return;
+    }
+    write(h, s, 24);
+    write(h, "\2\0", 2);
+    G_savegame(h);
+    W_savegame(h);
+    DOT_savegame(h);
+    SMK_savegame(h);
+    FX_savegame(h);
+    IT_savegame(h);
+    MN_savegame(h);
+    PL_savegame(h);
+    SW_savegame(h);
+    WP_savegame(h);
+    close(h);
 }
 
 void F_loadgame(int n) {
+    int h;
+    static char fn[] = "SAVGAME0.DAT";
+    short ver;
+
+    fn[7] = n + '0';
+    if ((h = open(fn, O_BINARY | O_RDONLY)) == -1) {
+        return;
+    }
+    lseek(h, 24, SEEK_SET);
+    read(h, &ver, 2);
+    if (ver != 2) {
+        return;
+    }
+    G_loadgame(h);
+    W_loadgame(h);
+    DOT_loadgame(h);
+    SMK_loadgame(h);
+    FX_loadgame(h);
+    IT_loadgame(h);
+    MN_loadgame(h);
+    PL_loadgame(h);
+    SW_loadgame(h);
+    WP_loadgame(h);
+    close(h);
 }
 
 void F_set_snddrv(void) {
@@ -243,7 +314,40 @@ void F_getresname(char *n, int r) {
 }
 
 int F_getsprid(const char *n, int s, int d) {
-    return 0;
+    int i;
+    byte a;
+    byte b;
+
+    s += 'A';
+    d += '0';
+    for (i = s_start + 1; i < s_end; ++i) {
+        if (memicmp(wad[i].n, n, 4) == 0 && (wad[i].n[4] == s || wad[i].n[6] == s)) {
+            if (wad[i].n[4] == s) {
+                a = wad[i].n[5];
+            } else {
+                a = 0;
+            }
+            if (wad[i].n[6] == s) {
+                b = wad[i].n[7];
+            } else {
+                b = 0;
+            }
+            if (a == '0') {
+                return i;
+            }
+            if (b == '0') {
+                return (i | 0x8000);
+            }
+            if (a == d) {
+                return i;
+            }
+            if (b == d) {
+                return (i | 0x8000);
+            }
+        }
+    }
+    ERR_fatal("F_getsprid: изображение %.4s%c%c не найдено", n, (byte) s, (byte) d);
+    return -1;
 }
 
 int F_getreslen(int r) {
