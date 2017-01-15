@@ -37,6 +37,7 @@ A: The main purpose of this project is to restore source code for binary. All ot
 
 * [Doom2D: Classic (v1.30/v1.40), (Rus)](http://doom2d.org/doom2d_classic/about/index.html)
 * [Doom2D: Forever. Remake of Doom2D (Rus)](http://doom2d.org/doom2d_forever/about/index.html)
+* [Doom2D: Rembo. Linux and Win32 port of Doom2D 1.35](http://code.google.com/p/doom2d-rembo/)
 * [Doom2D Forum (Rus)](http://doom2d.org/forum/)
 * [Interview with Alexey Volynskov (Rus)](http://doom2d.org/doom2d_classic/interview/index.html)
 * [DOOM Classic. Source code](https://github.com/id-Software/DOOM)
