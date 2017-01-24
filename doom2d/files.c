@@ -22,8 +22,8 @@
 #include "monster.h"
 #include "weapons.h"
 
-byte savname[7][24];
-byte savok[7];
+char savname[7][24];
+char savok[7];
 
 int d_start, d_end;
 int m_start, m_end;

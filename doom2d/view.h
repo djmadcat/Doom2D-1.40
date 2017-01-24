@@ -84,6 +84,7 @@ extern byte w_horiz;
 
 extern int w_o;
 extern int w_x, w_y;
+extern int w_ht;
 
 extern byte walswp[MAXWAL];
 

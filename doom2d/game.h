@@ -3,11 +3,26 @@
 
 #include "player.h"
 
+enum {
+    GS_TITLE,
+    GS_GAME,
+    GS_INTER,
+    GS_DARKEN,
+    GS_ENDANIM,
+    GS_END2ANIM,
+    GS_ENDSCR,
+    GS_BVIDEO,
+    GS_EVIDEO,
+    GS_END3ANIM
+};
+
 void G_savegame(int h);
 
 void G_loadgame(int h);
 
 int G_load(int h);
+
+void load_game(int n);
 
 void G_start(void);
 
@@ -21,8 +36,15 @@ void G_respawn_player(player_t *p);
 
 extern byte _2pl;
 extern byte g_dm;
+extern byte g_bot;
+extern byte g_st;
 extern byte g_exit;
+// next level (map) number
+extern byte g_map;
+// custom first level (map) number
 extern byte _warp;
+// current music name
+extern char g_music[8];
 extern dword g_time;
 
 extern int dm_pnum;

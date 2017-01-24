@@ -3,6 +3,16 @@
 
 #include "glob.h"
 #include "view.h"
+#include "libs/vga.h"
+
+// player draw state
+#define PL_DRAWLIFE  1
+#define PL_DRAWARMOR 2
+#define PL_DRAWWPN   4
+#define PL_DRAWFRAG  8
+#define PL_DRAWAIR   16
+#define PL_DRAWKEYS  32
+#define PL_DRAWLIVES 64
 
 typedef struct {
     obj_t o;
@@ -66,11 +76,17 @@ void PL_act(player_t *p);
 
 void PL_draw(player_t *p);
 
-void *PL_getspr(int s, int d);
+vgaimg_t *PL_getspr(int s, int d, vgaimg_t **i, int *wx, int *wy);
 
 void bfg_fly(int x, int y, int o);
 
 void PL_drawst(player_t *p);
+
+extern byte p_immortal;
+extern byte p_fly;
+
+extern int PL_JUMP;
+extern int PL_RUN;
 
 extern player_t pl1;
 extern player_t pl2;

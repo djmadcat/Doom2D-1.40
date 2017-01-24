@@ -62,6 +62,9 @@ void F_freemus(void);
 
 void F_loadmus(const char *n);
 
+extern char savname[7][24];
+extern char savok[7];
+
 extern int d_start, d_end;
 extern int m_start, m_end;
 extern int s_start, s_end;

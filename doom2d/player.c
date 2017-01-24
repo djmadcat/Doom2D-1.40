@@ -1,8 +1,18 @@
 #include <stddef.h>
 #include "player.h"
 
+byte p_immortal = 0;
+byte p_fly = 0;
+
+int PL_JUMP = 10;
+int PL_RUN = 8;
+
 player_t pl1;
 player_t pl2;
+
+static void *spr[27 * 2];
+static void *wpn[11][6];
+static int wytab[] = { -1, -2, -1, 0 };
 
 void PL_savegame(int h) {
 }
@@ -81,8 +91,21 @@ static int wpnspr(player_t *p) {
 void PL_draw(player_t *p) {
 }
 
-void *PL_getspr(int s, int d) {
-    return NULL;
+vgaimg_t *PL_getspr(int s, int d, vgaimg_t **i, int *wx, int *wy) {
+    if (s > 'D') {
+        // fire
+        // EF - wait/shot
+        *i = wpn[5][s == 'F'];
+        *wx = 0;
+        *wy = 0;
+    } else {
+        // walk
+        *i = (vgaimg_t *)wpn[5][0];
+        *wx = d ? 2 : -2;
+        *wy = 1 + wytab[s - 'A'];
+    }
+
+    return spr[(s - 'A') * 2 + d];
 }
 
 static void chk_bfg(player_t *p, int x, int y) {

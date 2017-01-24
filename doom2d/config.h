@@ -19,6 +19,8 @@ void CFG_save(void);
 extern int mem_chk_sz;
 extern byte fastdraw;
 
+extern byte cheat;
+extern byte shot_vga;
 extern int snd_card;
 
 #endif //DOOM2D_CONFIG_H

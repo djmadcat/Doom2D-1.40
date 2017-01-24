@@ -30,6 +30,7 @@ static void *horiz = NULL;
 
 int w_o;
 int w_x, w_y;
+int w_ht = 198;
 
 int sky_type = 1;
 

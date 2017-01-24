@@ -2,8 +2,12 @@
 
 byte _2pl = 0;
 byte g_dm = 0;
+byte g_bot = 0;
+byte g_st = GS_TITLE;
 byte g_exit = 0;
+byte g_map = 1;
 byte _warp = 0;
+char g_music[8] = "MENU";
 dword g_time;
 
 int dm_pnum;
@@ -26,7 +30,7 @@ int G_load(int h) {
     return 0;
 }
 
-static void load_game(int n) {
+void load_game(int n) {
 }
 
 void G_start(void) {
