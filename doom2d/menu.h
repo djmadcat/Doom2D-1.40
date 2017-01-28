@@ -25,4 +25,6 @@ void GM_init(void);
 
 int GM_draw(void);
 
+extern int lastkey;
+
 #endif //DOOM2D_MENU_H

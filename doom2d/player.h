@@ -14,6 +14,21 @@
 #define PL_DRAWKEYS  32
 #define PL_DRAWLIVES 64
 
+#define PLF_FIRE  1
+#define PLF_PNSND 2
+#define PLF_UP    4
+#define PLF_DOWN  8
+
+#define PLA_UP          1
+#define PLA_DOWN        2
+#define PLA_LEFT        4
+#define PLA_RIGHT       8
+#define PLA_FIRE        16
+#define PLA_JUMP        32
+#define PLA_PRESS       64
+#define PLA_PREV_WEAPON 128
+#define PLA_NEXT_WEAPON 256
+
 typedef struct {
     obj_t o;
     int looky;
@@ -42,7 +57,10 @@ typedef struct {
     int id;
     byte keys;
     char lives;
+    int __reserved;
 } player_t;
+
+int PL_actions(int n);
 
 void PL_savegame(int h);
 
@@ -72,7 +90,7 @@ void PL_cry(player_t *p);
 
 int PL_give(player_t *p, int t);
 
-void PL_act(player_t *p);
+void PL_act(player_t *p, int actions);
 
 void PL_draw(player_t *p);
 

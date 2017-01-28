@@ -86,6 +86,8 @@ extern int w_o;
 extern int w_x, w_y;
 extern int w_ht;
 
+extern int sky_type;
+
 extern byte walswp[MAXWAL];
 
 extern byte fldb[FLDH][FLDW];

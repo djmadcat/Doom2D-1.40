@@ -1,6 +1,8 @@
 #ifndef DOOM2D_FX_H
 #define DOOM2D_FX_H
 
+#include "libs/vga.h"
+
 #define MAXFX 300
 
 typedef struct {
@@ -28,5 +30,8 @@ void FX_tfog(int x, int y);
 void FX_ifog(int x, int y);
 
 void FX_bubble(int x, int y, int xv, int yv, int n);
+
+extern unsigned char fx_scr1[V_SCR_WIDTH * V_SCR_HEIGHT];
+extern unsigned char fx_scr2[V_SCR_WIDTH * V_SCR_HEIGHT];
 
 #endif //DOOM2D_FX_H

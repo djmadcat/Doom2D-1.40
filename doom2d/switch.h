@@ -51,4 +51,6 @@ void SW_cheat_open(void);
 
 int SW_press(int x, int y, int r, int h, byte t, int o);
 
+extern int sw_secrets;
+
 #endif //DOOM2D_SWITCH_H

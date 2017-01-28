@@ -3,6 +3,8 @@
 
 #include "glob.h"
 
+void Z_calc_time(dword t, word *h, word *m, word *s);
+
 void gotoxy(int x, int y);
 
 int wherex(void);

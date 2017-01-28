@@ -1,5 +1,7 @@
 #include <stddef.h>
 #include "player.h"
+#include "game.h"
+#include "libs/keyb.h"
 
 byte p_immortal = 0;
 byte p_fly = 0;
@@ -13,6 +15,58 @@ player_t pl2;
 static void *spr[27 * 2];
 static void *wpn[11][6];
 static int wytab[] = { -1, -2, -1, 0 };
+
+int PL_actions(int n) {
+    int result = 0;
+    player_t *p;
+
+    if (n == 0) {
+        p = &pl1;
+    } else if (n == 1) {
+        p = &pl2;
+    } else {
+        return 0;
+    }
+
+    if (g_bot && n == 1) {
+        //if (dword_45520) {
+        //    result = (*(int (__cdecl **)(int, player_t *))(*(_DWORD *)dword_45520 + 4))(dword_45520, p);
+        //} else {
+        //    result = 0;
+        //}
+    } else {
+        result = 0;
+        if (keys[p->kl]) {
+            result |= PLA_LEFT;
+        }
+        if (keys[p->kr]) {
+            result |= PLA_RIGHT;
+        }
+        if (keys[p->ku]) {
+            result |= PLA_UP;
+        }
+        if (keys[p->kd]) {
+            result |= PLA_DOWN;
+        }
+        if (keys[p->kf]) {
+            result |= PLA_FIRE;
+        }
+        if (keys[p->kj]) {
+            result |= PLA_JUMP;
+        }
+        if (keys[p->kp]) {
+            result |= PLA_PRESS;
+        }
+        if (keys[p->kwl]) {
+            result |= PLA_PREV_WEAPON;
+        }
+        if (keys[p->kwr]) {
+            result |= PLA_NEXT_WEAPON;
+        }
+    }
+
+    return result;
+}
 
 void PL_savegame(int h) {
 }
@@ -77,7 +131,7 @@ int PL_give(player_t *p, int t) {
     return 0;
 }
 
-void PL_act(player_t *p) {
+void PL_act(player_t *p, int actions) {
 }
 
 static int standspr(player_t *p) {

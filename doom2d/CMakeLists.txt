@@ -17,6 +17,7 @@ set(SOURCE_FILES
         view.h view.c
         vgaa.h vgaa_st.c
         menu.h menu.c
+        bot.h bot.c
         game.h game.c
         music.h music.c
         map.h

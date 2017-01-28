@@ -69,4 +69,6 @@ void IT_spawn_pos(const obj_t *o, int t);
 
 void IT_drop_ammo(int t, int n, int x, int y);
 
+extern int itm_rtime;
+
 #endif //DOOM2D_ITEMS_H
