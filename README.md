@@ -1,6 +1,6 @@
 # Doom2D (1.40)
 
-This is fan, non-commercial project.
+This is fan, non-commercial project.<br/>
 Main purpose is to restore original source code for the game.
 
 Source code for Doom2D, Editor, Setup, Tools, Libraries restored from original sources for version 1.35 and disassembled from binary for version 1.40.
@@ -23,13 +23,13 @@ What will be done:
 * Provide tech-doc for game formats: WAD, DMM, DMI, etc
 
 What will NOT be done:
-* Port for Windows, macOS, Linux, iOS, Android, etc.
+* Port for Windows, macOS, Linux, iOS, Android, etc
 * Port to any "game-engine" like Unity, etc
 * Port to any "media-layer" like SDL2, etc
 * Port to any "physics-engine" like Box2D, Chipmunk, etc
 * Port to any other language like Rust, Pascal, etc
 
-Q: Why it will not be done?
+Q: Why it will not be done?<br/>
 A: The main purpose of this project is to restore source code for binary. All other work will be performed in any fork.
 
 
